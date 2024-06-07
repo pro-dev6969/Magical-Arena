@@ -1,15 +1,16 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { PlayerContext } from '../PlayerContext'
 
 function Arena() {
-    const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
-  const player1 = JSON.parse(queryParams.get('player1'));
-  const player2 = JSON.parse(queryParams.get('player2'));
+  
+  const {player1 , player2} = useContext(PlayerContext); 
+    
   return (
     <div>Arena
-        <h1>{player1}</h1>
-        <h1>{player2}</h1>
+        <h1>{player1.name}</h1>
+        <p>{player1.attack}</p>
+        <p>{player1.defence}</p>
+        <h1>{player2.name}</h1>
     </div>
     
   )
