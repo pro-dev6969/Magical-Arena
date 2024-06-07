@@ -5,6 +5,7 @@ export const ControlPanel = ({ gameOver, onRoll, diceRolled, onRestart, turn, di
     <div className="control-panel">
         {!gameOver && (
             <div>
+                <div className="button-container">
                 {diceRolled.diceA ? (
                     <div>Dice A rolled: {diceValues.diceAvalue}</div>
                 ) : (
@@ -19,6 +20,7 @@ export const ControlPanel = ({ gameOver, onRoll, diceRolled, onRestart, turn, di
                         Roll {turn === 'B' ? 'attack' : 'defense'} Dice
                     </button>
                 )}
+                </div>
                 <Timer timeLeft={timeLeft} bothRolled={diceRolled.diceA && diceRolled.diceB} />
             </div>
         )}

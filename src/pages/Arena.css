@@ -1,7 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    font-weight: 200;
-    color: #fff;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,12 +13,16 @@ body {
 
 .magical-arena {
     text-align: center;
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
+    background: rgba(246, 241, 241, 0.8);
+    border-radius: 10px;
+    padding: 20px;
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin:0;
+    padding: 20px;
 }
 
 .player-container {
@@ -29,9 +32,12 @@ h1 {
 }
 
 .player-card {
+    background-color: #e6e6fa;
     border: 1px solid #ccc;
-    padding: 20px;
+    padding: 15px;
     width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0 ,0 ,0 ,0.1);
 }
 
 progress {
@@ -41,10 +47,12 @@ progress {
 
 .game-log {
     border: 1px solid #ccc;
+    border-radius: 10px;
     padding: 10px;
     height: 150px;
     overflow-y: auto;
     margin-bottom: 20px;
+    background: rgba(246, 241, 241, 0.3);
 }
 
 .control-panel {
@@ -62,4 +70,23 @@ progress {
 
 .turn-button:hover {
     background-color: #0056b3;
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.restart-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.restart-button:hover {
+    background-color: #218838;
 }

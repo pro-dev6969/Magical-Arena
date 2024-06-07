@@ -81,7 +81,7 @@ const Arena = () => {
         const defendDamage = gameState[defender].strength * diceBvalue;
 
         const damageDealt = Math.max(0, attackDamage - defendDamage);
-        const newHealth = gameState[defender].health - damageDealt;
+        const newHealth = Math.max(0,gameState[defender].health - damageDealt);
 
         const newMessage = `${gameState[attacker].name} attacked ${gameState[defender].name} for ${damageDealt} damage!`;
 
@@ -98,7 +98,7 @@ const Arena = () => {
             setGameState((prevState) => ({
                 ...prevState,
                 gameOver: true,
-                messages: [...prevState.messages, `${gameState[attacker].name} has been defeated! ${gameState[defender].name} wins!`],
+                messages: [...prevState.messages, `${gameState[defender].name} has been defeated! ${gameState[attacker].name} wins!`],
             }));
         }
         
@@ -114,12 +114,6 @@ const Arena = () => {
         }));
     };
 
-    const setfirstturn=()=>{
-        if(gameState.playerA.health<gameState.playerB.health)
-            gameState.currentTurn='A';
-        else
-            gameState.currentTurn='B';
-    }
 
     const handleRestart = () => {
         const randomAttack = () => Math.floor(Math.random() * 6)+1; // Random value between 1 and 7
@@ -143,11 +137,17 @@ const Arena = () => {
             messages: [],
 
         }));
-        setfirstturn();
+        if(gameState.playerA.health<gameState.playerB.health)
+            gameState.currentTurn='A';
+        else
+            gameState.currentTurn='B';
         setTimeLeft(3);
     };
     useEffect(()=>{
-        setfirstturn();
+        if(gameState.playerA.health<gameState.playerB.health)
+            gameState.currentTurn='A';
+        else
+            gameState.currentTurn='B';
     },[])
     
     
