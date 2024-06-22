@@ -28,4 +28,8 @@ Player A's health is reduced by 5 (20 - 15) to 45
 And so on..
 
 ## start command : 
+To run the game first install the dependencies(node_modules) then start game using dev script
+
+npm install
+
 npm run dev
